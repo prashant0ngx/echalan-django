@@ -1,0 +1,66 @@
+<header>
+    <div class="login-header box-shadow">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="brand-logo">
+                <a href="{% url 'users-login' %}">
+                    <img src="/static/vendors/images/logo.png" alt="logo" height="100px" width="90px">
+                </a>
+            </div>
+            <div class="header-content">
+                <p>Government of Nepal</p>
+                <p>Ministry of Physical Infrastructure and Transport</p>
+                <p> <b>Department of Transport Management </b>
+                </p>
+                <h1>
+                    <a href="{% url 'users-login' %}">E-CHALLAN</a>
+                </h1>
+            </div>
+            <div class="brand-logo">
+
+                <a href="{% url 'users-login' %}">
+                    <img src="/static/vendors/images/nepal.gif" alt="nepalflag" height="40px" srcset="" align="right">
+                </a>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+    </div>
+</header>
+
+{% comment %}
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary fixed-top">
+    <div class="container">
+        {% if request.user.is_authenticated %}
+        <a class="navbar-brand text-white" href="{% url 'blog-index' %}">PostScribers</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'users-profile' %}">Profile <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'users-logout' %}">Logout</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'users-sign-up' %}">Sign Up <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'users-login' %}">Login</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav> {% endcomment %}

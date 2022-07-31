@@ -1,0 +1,109 @@
+{% extends 'partials/base.html' %} {% block title %}E-chalan Login{% endblock %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/vendors/styles/signin.css">
+
+<div class="pre-loader">
+    <div class="pre-loader-box">
+        <div class="loader-logo"><img src="/static/vendors/images/logo.png" alt="logo" height="80px" width="90px" align="left">
+            <span class="loader_s" style="font-weight: bold;
+        font-size: 14px;">
+                <a class="loader_text" href="#home">E-CHALLAN</a>
+               
+            <span>
+        </div>
+
+        <div class='loader-progress' id="progress_div">
+            <div class='bar' id='bar1'></div>
+        </div>
+        <div class='percent' id='percent1'>0%</div>
+        <div class="loading-text">
+            Loading...
+        </div>
+    </div>
+</div> 
+<div class="signin">
+<div class="cover">
+    <div class="container align-self-center">
+        <div class="row mt-4 align-self-center">
+            <div class="col ml-0 border-radius-10  ">
+                <div class="card shadow border-radius-10 align-self-center da-overlay">
+                    <div class="card-body overflow-hidden position-endblock">
+                        <div class="slides">
+                            <img class="slideImages" src="/static/vendors/images/1.jpg" alt="">
+                            <img class="slideImages" src="/static/vendors/images/2.jpg" alt="">
+                            <img class="slideImages" src="/static/vendors/images/3.jpg" alt="">
+
+                        </div>
+                        <div class="login-form">
+                            <h4 align="center">Sign In</h4>
+                            <hr> {% if form.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show"> {{form.errors}}
+
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+                            </div>
+                            {% endif %}
+                            <form action="{% url 'users-login' %}" method="post">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <input type="text" name="username" placeholder="Username" class="form-control" required maxlength="16" style="font-size: 16px;border-radius: 20px;padding: 15px 20px 15px;margin: 10px 0px 0px;width: 100%;">
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" placeholder="Password" name="password" class="form-control" required maxlength="16" style="font-size: 16px;border-radius: 20px;padding: 15px 20px 15px;margin: 10px 0px 0px;width: 100%;" />
+
+                                </div>
+                                <div class="input-group">
+
+                                    <input class="btn btn-primary btn-block" type="submit" value="Sign In">
+                                </div>
+                            </form>
+                            <div style="text-align:center;">
+                                <p> <b><a href="{% url 'password_reset' %}">Forgot your password?</a> </b></p>
+                                <!--  <p>Create an account?
+                                    <b> <a href="{% url 'users-sign-up' %}">Sign Up</a> </b>
+                                </p> -->
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    {% endblock %} {% comment %}
+    <div class="cover">
+        <div class="container_login">
+            <div class="slides">
+                <img class="slideImages" src="/static/vendors/images/1.jpg" alt="">
+                <img class="slideImages" src="/static/vendors/images/2.jpg" alt="">
+                <img class="slideImages" src="/static/vendors/images/3.jpg" alt="">
+            </div>
+            <div class="row mt-5 pt-3">
+                <div class="col-md-5 offset-md-6">
+                    <div class="card my-3 shadow">
+                        <div class="card-body">
+                            <h4>Login Page</h4>
+                            <hr>
+
+                            <hr>
+                            <div class="text-center my-3">
+                                <a href="{% url 'password_reset' %}">Forget Password</a>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <a class="btn btn-success" href="{% url 'users-sign-up' %}">Create An Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}

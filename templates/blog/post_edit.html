@@ -1,0 +1,23 @@
+
+{% extends 'partials/base.html' %}
+{% block title %} E=chalan Post Edit{% endblock %}
+{% block content %}
+{% include 'partials/nav.html'%}
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-8 offset-md-2">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                        {{form}}
+                        <br>
+                        <input class="btn btn-primary btn-sm" type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

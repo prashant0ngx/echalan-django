@@ -1,0 +1,77 @@
+
+{% extends 'partials/base.html' %}
+{% block title %}E-chalan Profile{% endblock %}
+
+{% block content %}
+{% include 'partials/nav.html' %}
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-6 offset-md-3">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <span class="h4">Profile Page</span>
+                    <!-- Button trigger modal -->
+                    <span>
+                        <button type="button" class="btn btn-info float-right btn-sm" data-toggle="modal"
+                            data-target="#exampleModal">
+                            Edit Profile
+                        </button>
+                    </span>
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                <img class="rounded-circle mt-5" width="150px" src="{{ user.profile.image.url }}">
+                                <span class="font-weight-bold">{{ user.first_name }}</span><span class="text-black-50">{{ user.email }}</span><span> </span>
+                            </div>
+                        </div>
+                        {{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Profile Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 border-right">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="rounded-circle profile-img" " height="40px" width="60px">
+                    </div>
+                    <div class="col-md-8">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ u_form}}
+                            {{ p_form}}
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm"
+                                    data-dismiss="modal">Cancel</button>
+                a                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
